@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Design Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+
+    }
+    nav{
+        display: flex;
+        margin-left: 20px;
+    }
+    header nav a {
+      color: #fff;
+      float: left;
+      width: 4cm;
+      color: white;
+      font-size: 20px;
+      text-decoration: none;
+      padding: 5px 12px;
+      background-color: #2e9afe;
+    }
+    .slider {
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.slider-content {
+  flex: 1; /* Allow content to take space */
+}
+.slider img {
+  width: 4cm;
+  position: absolute;
+  right: 80px;
+  top: 50px;
+  transform: translateY(-50%);
+
+}
+.slider-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+button.prev, button.next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: white;
+  cursor: pointer;
+}
+
+button.prev {
+  left: 20px;
+}
+
+button.next {
+  right: 20px;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: white;
+}
+    .slider h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .slider p {
+      font-size: 16px;
+    }
+
+.learn-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #fff;
+}
+
+.learn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.learn-section img {
+  width: 180px;
+}
+
+.text-wrap {
+  max-width: 400px;
+  text-align: left;
+}
+    .learn-section button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #2e9afe;
+      border: none;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .testimonials {
+      background-color: #b3d1ff;
+      padding: 40px 20px;
+      text-align: center;
+    }
+    .testimonial-boxes {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .testimonial-boxes div {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 250px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      font-size: 14px;
+    }
+    .footer {
+      background-color: #000;
+      color: #fff;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 40px 20px;
+    }
+    .footer h4 {
+      margin-bottom: 15px;
+    }
+    .footer form {
+      display: flex;
+      flex-direction: column;
+      max-width: 300px;
+    }
+    .footer input, .footer textarea {
+      margin-bottom: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+    .footer button {
+      background-color: #2e9afe;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .sitemap ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sitemap ul li {
+      margin-bottom: 5px;
+    }
+    .sitemap ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 14px;
+    }
+    .contact-info {
+      font-size: 14px;
+    }
+    footer {
+      background-color: #222;
+      color: #aaa;
+      text-align: center;
+      padding: 10px;
+      font-size: 13px;
+    }
+    nav a.home-link {
+  background-color: #ffffff; 
+  color: black;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <img src="figma.png" alt="Logo" width="87">
+    <nav>
+      <a href="#" class="home-link">Home</a>
+      <a href="#">About Us</a>
+      <a href="#">Feature</a>
+      <a href="#">Pricing</a>
+      <a href="#">Contact Us</a>
+    </nav>
+  </header>
+
+  <section class="slider">
+  <button class="prev">&#10094;</button> <!-- Left Arrow -->
+  <div class="slider-content">
+    <h2>Design for Developers</h2>
+    <p>Learn how to enhance your website</p>
+    <img src="photo2.png" alt="Enhance UI">
+  </div>
+  <button class="next">&#10095;</button> <!-- Right Arrow -->
+  <div class="dots">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+
+ <section class="learn-section">
+  <div class="learn-content">
+    <img src="photo1.png" alt="Good Design">
+    <div class="text-wrap">
+      <h3>Learn Web Design</h3>
+      <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
+      <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for lorem ipsum will uncover many web sites still in their infanc</p>
+      <button>Learn More</button>
+    </div>
+  </div>
+</section>
+
+  <section class="testimonials">
+    <h3>Testimonials</h3>
+    <p>These are testimonials from clients</p>
+    <div class="testimonial-boxes">
+      <div>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit."</p>
+      </div>
+      <div>
+        <p>"Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</p>
+      </div>
+      <div>
+        <p>"Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris."</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="footer">
+    <div>
+      <h4>Contact Us</h4>
+      <form>
+        <input type="text" placeholder="Your Name">
+        <input type="email" placeholder="Your Email">
+        <textarea placeholder="Your Message"></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+    <div class="sitemap">
+      <h4>Sitemap</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Feature</a></li>
+        <li><a href="#">Pricing</a></li>
+        <li><a href="#">Contact Us</a></li>
+      </ul>
+    </div>
+    <div class="contact-info">
+      <p>📞 +250-0788587915</p>
+      <p>✉️ company@gmail.com</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>This is done by a lecture of web design. Please it's copyright.</p>
+  </footer>
+</body>
+</html>
