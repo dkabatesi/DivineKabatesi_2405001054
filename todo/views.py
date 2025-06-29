@@ -1,8 +1,14 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.decorators import login_required
 from .models import Task
+
 
 @login_required
 def home(request):
+    sort_by = request.GET.get('sort', 'due_date')
+
     if request.method == 'POST':
         title = request.POST.get('title')
         due_date = request.POST.get('due_date') or None
@@ -10,23 +16,23 @@ def home(request):
             Task.objects.create(title=title, due_date=due_date, user=request.user)
         return redirect('home')
 
-    tasks = Task.objects.filter(user=request.user).order_by('completed', 'due_date')
+    tasks = Task.objects.filter(user=request.user).order_by('completed', sort_by)
     return render(request, 'todo/home.html', {'tasks': tasks})
 
 
+@login_required
 def delete_task(request, task_id):
-    Task.objects.get(id=task_id).delete()
+    Task.objects.filter(id=task_id, user=request.user).delete()
     return redirect('home')
 
+
+@login_required
 def complete_task(request, task_id):
-    task = Task.objects.get(id=task_id)
+    task = Task.objects.get(id=task_id, user=request.user)
     task.completed = True
     task.save()
     return redirect('home')
 
-from django.contrib.auth import login, logout, authenticate
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
-from django.contrib.auth.decorators import login_required
 
 def register_user(request):
     if request.method == 'POST':
@@ -39,6 +45,7 @@ def register_user(request):
         form = UserCreationForm()
     return render(request, 'todo/register.html', {'form': form})
 
+
 def login_user(request):
     if request.method == 'POST':
         form = AuthenticationForm(data=request.POST)
@@ -49,8 +56,7 @@ def login_user(request):
         form = AuthenticationForm()
     return render(request, 'todo/login.html', {'form': form})
 
+
 def logout_user(request):
     logout(request)
     return redirect('login')
-
-# Create your views here.
