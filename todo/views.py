@@ -1,9 +1,8 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, logout, authenticate
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from .models import Task
-
 
 @login_required
 def home(request):
@@ -22,13 +21,14 @@ def home(request):
 
 @login_required
 def delete_task(request, task_id):
-    Task.objects.filter(id=task_id, user=request.user).delete()
+    task = get_object_or_404(Task, id=task_id, user=request.user)
+    task.delete()
     return redirect('home')
 
 
 @login_required
 def complete_task(request, task_id):
-    task = Task.objects.get(id=task_id, user=request.user)
+    task = get_object_or_404(Task, id=task_id, user=request.user)
     task.completed = True
     task.save()
     return redirect('home')
