@@ -29,7 +29,6 @@ ROOT_URLCONF = 'DivineKabatesi_2405001054.urls'
 # ✅ Static file settings for Render + WhiteNoise
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # ✅ Optional: ensure whitenoise can serve compressed, versioned static assets
